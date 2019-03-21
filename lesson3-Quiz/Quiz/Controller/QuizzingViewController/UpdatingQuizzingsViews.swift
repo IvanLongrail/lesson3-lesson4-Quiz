@@ -45,9 +45,5 @@ extension QuizzingVC {
         
         rengedLabels[2].text = String(Int(rengedSlider.value))
     }
-    
-//    @IBAction func doSomething(sender: UISlider, forEvent event: UIEvent.valueChanged) {
-//
-//    }
-    
+
 }

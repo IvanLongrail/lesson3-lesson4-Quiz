@@ -28,9 +28,4 @@ extension QuizSelectionVC: UITableViewDelegate, UITableViewDataSource {
         performSegue(withIdentifier: "startQuizzing", sender: nil)
     }
     
-   
-//    override func willAnimateRotationToInterfaceOrientation(toInterfaceOrientation: UIInterfaceOrientation, duration: NSTimeInterval)
-//    {
-//        self.tableView.reloadData()
-//    }
 }

@@ -23,7 +23,6 @@ class ResultsVC: UIViewController {
         super.viewDidLoad()
         self.navigationItem.hidesBackButton = true
         
-        //let roundedValue1 = (0.6844 * 1000).rounded() / 1000
         scoreLabel.text = String((totalScore! * 100).rounded() / 100)
         rapidityLabel.text = String("\((rapidity! * 100).rounded() / 100) сек")
         luckinessLabel.text = String((luckiness! * 100).rounded() / 100)

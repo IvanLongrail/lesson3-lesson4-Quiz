@@ -55,7 +55,6 @@ extension QuizzingVC {
             let minCount = min(singleButtons.count, currentQuestionAnswers.count)
             for i in 0..<minCount {
                 if sender == singleButtons[i] {
-                    //ВРЕМЕННО ПОКА НЕТ ТАЙМЕРА
                     score = Player.PlayerScore(currentQuestionAnswers[i].score)
                 }
             }

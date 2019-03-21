@@ -9,25 +9,16 @@
 import Foundation
 
 class Player {
-//    var playerName: String
-//    var quizResult: [QuizResult]
+    
     var withKey: [  String : [ String : QuizResult]  ]
     
     init(playerName: String) {
-//        self.playerName = playerName
-//        self.quiz = [QuizResult]()
-        //self.quizResult = [playerName : [QuizResult]() ]
+
         self.withKey = [ playerName : [ String : QuizResult ]() ]
     }
-    
-//    init(playerName: String, quiz: QuizResult) {
-//        self.playerName = playerName
-//        self.quiz = [QuizResult]()
-//        self.quiz.append(quiz)
-//    }
-    
+  
     struct QuizResult {
-        //var quizName: String
+    
         var answers: [AnswerResult]
         
         var rapidity: Double { // total time spent on quiz
@@ -48,30 +39,13 @@ class Player {
     }
     
     
-    
     static func loadData() -> Player {
         return Player(playerName: "Ivan")
     }
     
     static func loadData(completion: @escaping (Player?) -> Void) {
-        //        let quizzes = loadData()
         completion(nil)
     }
     
     static func uploadData() {}
 }
-    
-//            var luckyScore: Double = 0
-//            for answer in answers.filter({$0.luck.isActive}) {
-//                luckyScore += (answer.luck.value - 1) * answer.score
-//            }
-//            return luckyScore
-//
-        
-        
-        
-//            var score: Double = 0
-//            for answer in answers {
-//                score += answer.score * answer.timeMultiplier * answer.luck.value
-//            }
-//            return score

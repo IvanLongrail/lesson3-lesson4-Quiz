@@ -23,7 +23,6 @@ extension Player {
     struct PlayerTime {
         var remains: Double
         var spent: Double
-        //var coefficient: Double
     }
     
     typealias PlayerLuck = (isActive: Bool, value: Double)

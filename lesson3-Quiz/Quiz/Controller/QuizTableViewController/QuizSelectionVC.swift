@@ -12,8 +12,6 @@ class QuizSelectionVC: UIViewController {
     var players: Player!
     var enteredPlayerName: String!
     var quizzes: [Quiz]!
-
-    //var constraints: UIConstraont
     
     @IBOutlet weak var tableView: UITableView!
     

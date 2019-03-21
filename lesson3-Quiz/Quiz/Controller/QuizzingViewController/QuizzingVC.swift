@@ -12,11 +12,9 @@ class QuizzingVC: UIViewController {
 
     var players: Player!
     var enteredPlayerName: String!
-    //var quizName: String!
+
     var quiz: Quiz!
     var indexOfCurrentQuestion = 0
-    // СДЕЛАТЬ ВМЕСТО ИНДЕКСА ЦИКЛЫ WHILE ЧТОБЫ массив состоял всегда из непоказанных вопросов
-    
     
     @IBOutlet weak var questionLabel: UILabel!
     @IBOutlet weak var countdownLabel: UILabel!
