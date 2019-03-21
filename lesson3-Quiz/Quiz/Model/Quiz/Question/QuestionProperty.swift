@@ -15,9 +15,9 @@ enum ResponceProperty {
 
 enum TimerProperty: Double { // seconds
     case none = 1 // 1/1 = 1, the coefficient does not affect the scoring
-    case fast = 5
-    case standart = 10
-    case double = 20
+    case fast = 10
+    case standart = 20
+    case double = 40
 }
 
 enum LuckyProperty: Double { //score coefficient
@@ -37,9 +37,9 @@ struct ScoreProperty {
     
     static func equalProportion(whereMax: Double) -> ScoreProperty {
         let best = whereMax
-        let aboveAverage = whereMax / 3 * 2
-        let middle = whereMax / 3
-        let low: Double = 0
+        let aboveAverage = whereMax / 2
+        let middle =  0 - whereMax / 2
+        let low: Double = 0 - whereMax
         return ScoreProperty(best: best, aboveAverage: aboveAverage, middle: middle, low: low)
     }
     

@@ -24,13 +24,13 @@ class Quiz {
     static func loadData() -> [Quiz] {
         var quizzes = [Quiz]()
         
-        quizzes.append(Quiz(authorName: "Ivan", quizName: "Мумий Тролль. Илья Лагутенко", creationDate: Date(), questions: Question.loadData()))
+        quizzes.append(Quiz(authorName: "Ivan", quizName: "Мифы и легенды", creationDate: Date(), questions: Question.loadDataMiths()))
+        quizzes.append(Quiz(authorName: "Ivan", quizName: "Музыкальная шкатулка", creationDate: Date(), questions: Question.loadDataMusicBox()))
         
         return quizzes
     }
     
     static func loadData(completion: @escaping ([Quiz]?) -> Void) {
-//        let quizzes = loadData()
         completion(nil)
     }
     

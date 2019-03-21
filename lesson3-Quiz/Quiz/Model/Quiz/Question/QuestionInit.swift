@@ -29,12 +29,12 @@ extension Question {
         self.answers = answerArray
     }
     
-//    init(text: String, responceProperty: ResponceProperty, timerProperty: TimerProperty, luckyProperty: LuckyProperty, scoreProperty: ScoreProperty) {
-//        self.text = text
-//        self.responceProperty = responceProperty
-//        self.timerProperty = timerProperty
-//        self.luckyProperty = luckyProperty
-//        self.scoreProperty = scoreProperty
-//        self.answers = nil
-//    }
+    init(text: String, responceProperty: ResponceProperty, timerProperty: TimerProperty, luckyProperty: LuckyProperty, scoreProperty: ScoreProperty) {
+        self.text = text
+        self.responceProperty = responceProperty
+        self.timerProperty = timerProperty
+        self.luckyProperty = luckyProperty
+        self.scoreProperty = scoreProperty
+        self.answers = [Answer]()
+    }
 }

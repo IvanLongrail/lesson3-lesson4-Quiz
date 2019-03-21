@@ -31,10 +31,14 @@ class QuizzingVC: UIViewController {
     
     @IBOutlet var multipleLabels: [UILabel]!
     @IBOutlet var multipleSwitches: [UISwitch]!
+    @IBOutlet weak var multipleButton: UIButton!
     
     @IBOutlet weak var rengedSlider: UISlider!
     @IBOutlet var rengedLabels: [UILabel]!
+    @IBOutlet weak var rengedButton: UIButton!
     
+    var timerCount: (current: Double,total: Double) = (0,1)
+    var timer: Timer?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,14 +50,27 @@ class QuizzingVC: UIViewController {
         singleStackView.isHidden = true
         rangeStackView.isHidden = true
         multipleStackView.isHidden = true
-        
+        countdownLabel.isHidden = true
+        countdownProgressView.isHidden = true
+    
         navigationItem.title = quiz.quizName
         
         let currentQuestion = quiz.questions[indexOfCurrentQuestion]
+    
+        
+        if currentQuestion.timerProperty != .none {
+            countdownLabel.isHidden = false
+            countdownProgressView.isHidden = false
+            timerCount = (current: currentQuestion.timerProperty.rawValue,
+                              total: currentQuestion.timerProperty.rawValue)
+        
+            countdownProgressView.setProgress(1, animated: false)
+        
+            timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(changeCountdown(timer:)), userInfo: nil, repeats: true)
+        }
         
         questionLabel.text = """
         \(indexOfCurrentQuestion + 1) / \(quiz.questions.count)
-        
         \(currentQuestion.text)
         """
         
@@ -72,6 +89,20 @@ class QuizzingVC: UIViewController {
             updateMultipleStack()
         }
         
+    }
+    
+    @IBAction func sliderValueChanged(sender: UISlider) {
+        rengedLabels[2].text = String(Int(rengedSlider.value))
+    }
+    
+    @objc func changeCountdown(timer: Timer) {
+        if timerCount.current > 0 {
+            timerCount.current -= 0.1
+            countdownLabel.text = String(Int(timerCount.current))
+            countdownProgressView.setProgress(Float(timerCount.current / timerCount.total), animated: true)
+        } else {
+            timer.invalidate()
+        }
     }
 
 }

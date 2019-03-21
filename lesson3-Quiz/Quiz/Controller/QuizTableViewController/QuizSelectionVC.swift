@@ -9,10 +9,11 @@
 import UIKit
 
 class QuizSelectionVC: UIViewController {
-    var players: Player!//[ String : [Player.QuizResult] ]! // key (first element os dictionary) is String = "name of quiz"
+    var players: Player!
     var enteredPlayerName: String!
     var quizzes: [Quiz]!
-    //var quizzes: [Quiz] = Quiz.loadData()
+
+    //var constraints: UIConstraont
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -38,13 +39,22 @@ class QuizSelectionVC: UIViewController {
             quizzingViewController.quiz = currentQuiz
             
             players.withKey[enteredPlayerName]!.updateValue(Player.QuizResult(), forKey: currentQuiz.quizName)
-            //player.quiz.append(quizName: currentQuiz.quizName, answers: [answerResult]())
+    
             quizzingViewController.players = players
             quizzingViewController.enteredPlayerName = enteredPlayerName
-            //quizzingViewController.quizName = currentQuiz.quizName
-            
-            
+          
         } else { return }
+    }
+    
+    override func willAnimateRotation(to toInterfaceOrientation: UIInterfaceOrientation, duration: TimeInterval)
+    {
+        self.tableView.layoutIfNeeded()//updateConstraints()
+        self.tableView.updateConstraints()
+    }
+    
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        self.tableView.layoutIfNeeded()
+        self.tableView.updateConstraints()
     }
     
     @IBAction func unwind(segue: UIStoryboardSegue) {

@@ -20,10 +20,6 @@ extension QuizSelectionVC: UITableViewDelegate, UITableViewDataSource {
         return cell
     }
     
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 100
-    }
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return quizzes.count
     }
@@ -32,4 +28,9 @@ extension QuizSelectionVC: UITableViewDelegate, UITableViewDataSource {
         performSegue(withIdentifier: "startQuizzing", sender: nil)
     }
     
+   
+//    override func willAnimateRotationToInterfaceOrientation(toInterfaceOrientation: UIInterfaceOrientation, duration: NSTimeInterval)
+//    {
+//        self.tableView.reloadData()
+//    }
 }
